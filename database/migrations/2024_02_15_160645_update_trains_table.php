@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('trains', function (Blueprint $table) {
-            $table->date('departure_date');
-            $table->date('arrival_date');
+        Schema::table('trains', function (Blueprint $table) {
+            $table->date('departure_date')->nullable();
+            $table->date('arrival_date')->nullable();
         });
     }
 
@@ -26,9 +26,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::create('trains', function (Blueprint $table) {
-            $table->date('departure_date');
-            $table->date('arrival_date');
+        Schema::table('trains', function (Blueprint $table) {
             $table->dropColumn(['departure_date','arrival_date']);
         });
     }
