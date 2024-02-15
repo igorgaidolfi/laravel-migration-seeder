@@ -14,7 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('trains', function (Blueprint $table) {
-            $table->id();            
+            $table->id();          
+            $table->string('company', 50);
+            $table->string('origin_station', 58);
+            $table->string('destination_station', 58);
+            $table->time('departure_hour');
+            $table->time('arrival_hour');
+            $table->string('train_code', 8);
+            $table->tinyInteger('number_of_coaches')->unsigned();
+            $table->tinyInteger('on_time')->unsigned();
+            $table->tinyInteger('cancelled')->unsigned();            
             $table->timestamps();
         });
     }

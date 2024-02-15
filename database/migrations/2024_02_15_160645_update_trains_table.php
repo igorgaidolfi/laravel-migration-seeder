@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('trains', function (Blueprint $table) {
+            $table->date('departure_date');
+            $table->date('arrival_date');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::create('trains', function (Blueprint $table) {
+            $table->date('departure_date');
+            $table->date('arrival_date');
+            $table->dropColumn(['departure_date','arrival_date']);
+        });
+    }
+};
